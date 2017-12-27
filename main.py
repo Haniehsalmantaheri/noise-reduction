@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 
-#define a function that generates the noises
+# ******* define a function that generates the noises ******* #
 def noisy(noise_typ,image):
 
     # gaussian
@@ -53,7 +53,7 @@ def noisy(noise_typ,image):
         cvuint8 = cv2.convertScaleAbs(noisy)
         return cvuint8
 
-# making the noisy image #
+# ******* making noisy images ******* #
 
 #Lenna image
 img1 = cv2.imread('Lenna.png',0)
@@ -61,7 +61,13 @@ noisyImg1 = noisy('gauss',img1)
 
 #cameraman image
 img2 = cv2.imread('cameraman.png',0)
-noisyImg2 = noisy('gauss',img2)
+noisyImg2 = noisy('s&p',img2)
+
+#lamborghini image
+img3 = cv2.imread('lamborghini.png',0)
+noisyImg3 = noisy('poisson',img3)
+
+# ******* FILTERS ******* #
 
 # median filter #
 denoised_median = cv2.medianBlur(img1,3)
@@ -70,6 +76,8 @@ denoised_median = cv2.medianBlur(img1,3)
 kernel = np.ones((5,5),np.float32)/25
 denoised_mean = cv2.filter2D(noisyImg1,-1,kernel)
 
+# ******* Showing the result ******* #
 cv2.imshow('noisy',noisyImg1)
-cv2.imshow('denoised',denoised_median)
+cv2.imshow('denoised by median filter',denoised_median)
+cv2.imshow('denoised by mean filter',denoised_mean)
 cv2.waitKey()
