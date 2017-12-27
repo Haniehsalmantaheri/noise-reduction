@@ -37,13 +37,6 @@ def noisy(noise_typ,image):
         coords = [np.random.randint(0, i - 1, int(num_pepper))for i in image.shape]
         out[coords] = 0
         return out
-    # poison
-    elif noise_typ == "poisson":
-        vals = len(np.unique(image))
-        vals1 = 2 ** np.ceil(np.log2(vals))
-        noisy = np.random.poisson(image * vals1) / float(vals1)
-        cvuint8 = cv2.convertScaleAbs(noisy)
-        return cvuint8
     # speckle
     elif noise_typ =="speckle":
         row,col = image.shape
@@ -65,7 +58,7 @@ noisyImg2 = noisy('s&p',img2)
 
 #lamborghini image
 img3 = cv2.imread('lamborghini.png',0)
-noisyImg3 = noisy('poisson',img3)
+noisyImg3 = noisy('speckle',img3)
 
 # ******* FILTERS ******* #
 
@@ -73,7 +66,7 @@ noisyImg3 = noisy('poisson',img3)
 denoised_median = cv2.medianBlur(img1,3)
 
 # mean filter #
-kernel = np.ones((5,5),np.float32)/25
+kernel = np.ones((6,6),np.float32)/36
 denoised_mean = cv2.filter2D(noisyImg1,-1,kernel)
 
 # ******* Showing the result ******* #
