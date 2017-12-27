@@ -1,6 +1,4 @@
 import cv2
-
-import cv2
 import numpy as np
 
 #define a function that generates the noises
