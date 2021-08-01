@@ -1,5 +1,5 @@
-# AI_NoiseReduction
-Iran University of Science and Technology - Hanie Taheri 
+# Noise Reduction
+Iran University of Science and Technology - Hanieh Salmantaheri
 #
 In this project we make noisy images and try to remove the noises with spatial filters and make the image clear.
 
