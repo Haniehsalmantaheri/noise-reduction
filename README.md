@@ -1,10 +1,13 @@
-# Noise Reduction
-Iran University of Science and Technology - Hanieh Salmantaheri
-#
-In this project we make noisy images and try to remove the noises with spatial filters and make the image clear.
+# Image Noise Reduction
 
-main.py is our code.
+### Introduction
+In this project, three different noises are put on three sample images. These noises are trying to be removed with spatial filters and make the image clear.
+### Related Technologies and Libraries
+* [OpenCV](https://docs.opencv.org/4.5.2/d6/d00/tutorial_py_root.htmlmn)
+* [matplotlib](https://pypi.org/project/matplotlib/)
+* [numpy](https://pypi.org/project/numpy/)
 
-Three images were tested which can be viewed in the images folder.
-
-Results are in results folder.
+### How to run
+* Make sure to have openCV installed on your device properly. In order to make this process easy, related links are included.
+* Build the `Dockerfile` using `docker build --tag some-name .` command.
+* Run your `Dockerfile` using `docker run some-name`.
